@@ -3,8 +3,9 @@
 ## Before merging the page
 - [x] Shelf/counter photos in `src/_data/shelfPhotos.json`
 - [x] `miamipeculiar.com` verified and connected in Settings → Pages
-- [ ] HTTPS enforced
-- [ ] Owner confirms claims, terms, box contents, top 4 and the signed note
+- [x] HTTPS enforced
+- [x] Owner confirmed (2026-11-23): all 6 shops reorder, box, top 4 (magnets, coasters, stickers, caps), selling since 2023, handmade in Little Havana, 33–59% margin, reply/ship days, no first-reorder minimum, signed note, payment by card (not on delivery; card payment itself is not set up yet)
+- [ ] Still open: Delray Beach Kollective name + area, a real shop-owner quote she has approved
 - [ ] Optional: `GOATCOUNTER_CODE` (visit counter)
 
 ## Right after

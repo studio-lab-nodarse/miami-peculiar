@@ -3,28 +3,28 @@
     "img": "ab7d02576df3c3b2.webp",
     "altEn": "A shop wall covered in Miami Peculiar wood magnets, with trays of magnets, stickers and coasters below",
     "altEs": "Pared de una tienda llena de imanes de madera Miami Peculiar, con bandejas de imanes, stickers y posavasos",
-    "captionEn": "Magnets, stickers and coasters",
-    "captionEs": "Imanes, stickers y posavasos"
+    "shop": "Wynwood Kollective",
+    "area": "Wynwood"
   },
   {
     "img": "7faa44db5649f0f2.webp",
     "altEn": "A shop shelf with wood magnets, coasters and two Little Havana caps",
     "altEs": "Estante de una tienda con imanes de madera, posavasos y dos gorras Little Havana",
-    "captionEn": "Magnets, coasters and caps",
-    "captionEs": "Imanes, posavasos y gorras"
+    "shop": "KCULL",
+    "area": "Calle Ocho"
   },
   {
     "img": "e5f8893853bbe02e.webp",
     "altEn": "A shop table with a framed board of magnets, pouches, postcards and round coasters",
     "altEs": "Mesa de una tienda con un cuadro de imanes, estuches, postales y posavasos redondos",
-    "captionEn": "Magnets, pouches, postcards and coasters",
-    "captionEs": "Imanes, estuches, postales y posavasos"
+    "shop": "KCULL",
+    "area": "Calle Ocho"
   },
   {
     "img": "85b6e16aeef0f5e8.webp",
     "altEn": "Close-up of stacked coasters and rows of wood magnets on a shop counter",
     "altEs": "Posavasos apilados y filas de imanes de madera en el mostrador de una tienda",
-    "captionEn": "Coasters and magnets up close",
-    "captionEs": "Posavasos e imanes de cerca"
+    "shop": "Wynwood Kollective",
+    "area": "Wynwood"
   }
 ]
