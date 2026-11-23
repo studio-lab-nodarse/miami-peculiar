@@ -12,7 +12,7 @@ The catalog and storefront are a **different repo and site** (`studio-lab-nodars
 - `src/_data/trial.js` must keep a **default export only**: a second named export makes Eleventy pass templates the module object, and every value silently turns empty.
 - All copy lives in `src/_data/trialPages.js`, EN + ES side by side. Spanish uses "tú"; design names stay in English.
 - The FormSubmit endpoint lives only in `assets/submit.js`. A send that isn't confirmed in 20s falls back to a prefilled email; if it's confirmed later the form switches to "Got it".
-- Shelf photos: files in `assets/img/` (named by content hash) + `src/_data/shelfPhotos.json` (`img`, `shop`, `area`, `altEn`, `altEs`). 1–4; an empty list turns the section into "Why it sells".
+- Shelf photos: files in `assets/img/` (named by content hash) + `src/_data/shelfPhotos.json` (`img`, `altEn`, `altEs`, plus `shop`/`area` **or** `captionEn`/`captionEs`). Name a shop only when it's certain. Phones show the first 2. 1–4; an empty list turns the section into "Why it sells".
 - No fake testimonials or numbers. CI fails on known placeholders.
 - Approved design: Claude Design canvas, "Final" page. Phone first, desktop from 960px.
 

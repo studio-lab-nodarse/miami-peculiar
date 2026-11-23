@@ -213,7 +213,7 @@ function buildPage(lang, d, photos) {
     photos: photos.slice(0, 4).map((p) => ({
       img: p.img,
       alt: L(p.altEn, p.altEs),
-      caption: p.area ? `${p.shop} · ${p.area}` : p.shop,
+      caption: p.shop ? [p.shop, p.area].filter(Boolean).join(" · ") : L(p.captionEn, p.captionEs),
     })),
     s2d: L(`You’ll get a reply within ${reply} business days, with your price sheet.`, `Te contesta en ${reply} días hábiles, con tu lista de precios.`),
     note: L(`“Every box goes to a real shop, so I read each request myself. You’ll hear from me within ${reply} business days.”`, `“Cada caja va a una tienda de verdad, por eso leo cada solicitud yo mismo. Te contesto en ${reply} días hábiles.”`),
@@ -231,7 +231,7 @@ export default () => {
   const d = trialData();
   const photos = json("shelfPhotos");
   for (const p of photos) {
-    for (const k of ["img", "shop", "altEn", "altEs"]) {
+    for (const k of ["img", "altEn", "altEs", ...(p.shop ? [] : ["captionEn", "captionEs"])]) {
       if (!p[k]) throw new Error(`[shelfPhotos] entry is missing "${k}": ${JSON.stringify(p)}`);
     }
     if (!fs.existsSync(new URL(`../../assets/img/${p.img}`, import.meta.url))) {

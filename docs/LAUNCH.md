@@ -1,8 +1,9 @@
 # Launch
 
 ## Before merging the page
-- [ ] Shelf/counter photos in `src/_data/shelfPhotos.json`
-- [ ] `miamipeculiar.com` connected in Settings → Pages, HTTPS on
+- [x] Shelf/counter photos in `src/_data/shelfPhotos.json`
+- [x] `miamipeculiar.com` verified and connected in Settings → Pages
+- [ ] HTTPS enforced
 - [ ] Owner confirms claims, terms, box contents, top 4 and the signed note
 - [ ] Optional: `GOATCOUNTER_CODE` (visit counter)
 
