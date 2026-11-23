@@ -39,6 +39,7 @@
   var KEY = "mp_trial_sent";
   var fields = $("[data-fields]", form);
   var busy = false;
+  var slowTimer = null;
 
   function store(value) {
     try {
@@ -135,6 +136,12 @@
     busy = on;
     fields.disabled = on;
     form.setAttribute("aria-busy", on ? "true" : "false");
+    // FormSubmit often takes 15-30 s: say so instead of leaving a silent spinner.
+    clearTimeout(slowTimer);
+    $all("[data-slow]", form).forEach(function (p) { p.hidden = true; });
+    if (on) slowTimer = setTimeout(function () {
+      $all("[data-slow]", form).forEach(function (p) { p.hidden = false; });
+    }, 6000);
     $all("[data-send],[data-out-send],[data-out-zip]", form).forEach(function (b) {
       b.disabled = on;
       var idle = $("[data-idle]", b), wait = $("[data-busy]", b);

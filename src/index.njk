@@ -272,6 +272,7 @@ permalink: "{{ p.path }}index.html"
             <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
           </fieldset>
           <button type="submit" class="btn btn-sun btn-lg" data-send><span data-idle>{{ t.send }}</span><span data-busy hidden>{{ ico("spin", "spin") }}{{ t.sending }}</span></button>
+          <p class="hint center" data-slow role="status" hidden>{{ t.slow }}</p>
           <p class="hint center">{{ t.addrHint }}</p>
         </div>
 
@@ -279,6 +280,7 @@ permalink: "{{ p.path }}index.html"
           <p class="steph"><span>{{ t.oneStep }}</span><span>{{ t.fZip }}: <b data-fill="zip"></b></span></p>
           <div class="outbox">{{ ico("pin", "teal") }}<p class="disp">{{ t.outTitle }}</p><p>{{ t.outText }}</p></div>
           <button type="button" class="btn btn-sun" data-out-send><span data-idle>{{ t.outSend }}</span><span data-busy hidden>{{ ico("spin", "spin") }}{{ t.sending }}</span></button>
+          <p class="hint center" data-slow role="status" hidden>{{ t.slow }}</p>
           <button type="button" class="btn btn-soft" data-out-zip>{{ t.outZip }}</button>
         </div>
 
