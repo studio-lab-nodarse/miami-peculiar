@@ -1,12 +1,12 @@
 /* Sends a request to the owner's inbox through FormSubmit. The ONLY file with the
    endpoint. Resolves only when FormSubmit CONFIRMS the send: a 200 with
    success:"false" (e.g. not activated yet) also rejects. FormSubmit can be slow or
-   not answer at all: after 20 s this rejects with error.late = the request still in
+   not answer at all (13-28 s is common): after 60 s this rejects with error.late = the request still in
    flight, in case it is confirmed later. */
 (function () {
   "use strict";
   var ENDPOINT = "https://formsubmit.co/ajax/jesusnodarse1823@gmail.com";
-  var TIMEOUT = 20000;
+  var TIMEOUT = 60000;
 
   window.mpSubmit = function (payload) {
     var request = fetch(ENDPOINT, {
