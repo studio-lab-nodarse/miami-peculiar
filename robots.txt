@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://miamipeculiar.com/sitemap.xml

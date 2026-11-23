@@ -1,0 +1,15 @@
+{
+  "name": "miami-peculiar",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Miami Peculiar trial-box page (miamipeculiar.com) — static site built with Eleventy, deployed to GitHub Pages.",
+  "scripts": {
+    "build": "rm -rf _site && eleventy",
+    "dev": "eleventy --serve --incremental",
+    "verify": "npm run build && python3 tools/verify_site.py _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
