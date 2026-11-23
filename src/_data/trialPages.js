@@ -27,9 +27,9 @@ const COPY = {
     h1a: "The Miami souvenirs tourists actually buy.", h1b: "Try a box free.",
     sub: "Wood magnets and original Miami art, handmade in Little Havana. Keep what sells, reorder what sells out.",
     cta: "Request a free trial box", seeLink: "See what sells", seal: "FREE TRIAL BOX ★ MADE IN MIAMI ★ ",
-    proofLabel: "Proof", bestTitle: "Shop favorites", bestSub: "A few of our pieces, and what they sell for.", catalog: "Try them free in your shop",
-    magnet: "Magnet", sticker: "Sticker", cap: "Cap", capName: "Lifeguard Tower cap",
-    altLifeguard: "Lifeguard Tower wood magnet", altDomino: "Domino Park wood magnet", altCadillac: "Pink Cadillac sticker", altCap: "Pink cap with a Lifeguard Tower patch",
+    proofLabel: "Proof", bestTitle: "What sells best", bestSub: "Our top four in shops, and what they sell for.", catalog: "Try them free in your shop",
+    magnets: "Wood magnets", coasters: "Coasters", stickers: "Stickers", caps: "Caps",
+    altLifeguard: "Lifeguard Tower wood magnet", altCoaster: "Rainbow Lifeguard Tower coaster", altCadillac: "Pink Cadillac sticker", altCap: "Pink cap with a Lifeguard Tower patch",
     boxAlt: "What comes in a trial box: wood magnets, a sticker, a coaster, a cap and a reorder card", reorderTag: "Reorder",
     boxTitle: "Your free trial box", boxSub: "A hand-picked mix for your counter, chosen for your shop.",
     boxMix: "A few stickers, caps, totes or coasters", boxCard: "A reorder card with your shop’s own QR code", boxCustom: "Ask for designs made just for your shop: your town, beach or landmark", fCustom: "I’d like designs made just for my shop",
@@ -56,9 +56,9 @@ const COPY = {
     h1a: "Los souvenirs de Miami que los turistas sí compran.", h1b: "Prueba una caja gratis.",
     sub: "Imanes de madera y arte original de Miami, hechos a mano en la Pequeña Habana. Quédate con lo que se vende y repón lo que se agota.",
     cta: "Pide tu caja de prueba gratis", seeLink: "Mira lo que se vende", seal: "CAJA GRATIS ★ HECHO EN MIAMI ★ ",
-    proofLabel: "Pruebas", bestTitle: "Favoritos de las tiendas", bestSub: "Algunas de nuestras piezas, y a cuánto se venden.", catalog: "Pruébalos gratis en tu tienda",
-    magnet: "Imán", sticker: "Sticker", cap: "Gorra", capName: "Gorra Lifeguard Tower",
-    altLifeguard: "Imán de madera Lifeguard Tower", altDomino: "Imán de madera Domino Park", altCadillac: "Sticker Pink Cadillac", altCap: "Gorra rosada con parche Lifeguard Tower",
+    proofLabel: "Pruebas", bestTitle: "Lo que más se vende", bestSub: "Nuestros cuatro más vendidos, y a cuánto se venden.", catalog: "Pruébalos gratis en tu tienda",
+    magnets: "Imanes de madera", coasters: "Posavasos", stickers: "Stickers", caps: "Gorras",
+    altLifeguard: "Imán de madera Lifeguard Tower", altCoaster: "Posavasos Rainbow Lifeguard Tower", altCadillac: "Sticker Pink Cadillac", altCap: "Gorra rosada con parche Lifeguard Tower",
     boxAlt: "Lo que trae una caja de prueba: imanes de madera, un sticker, un posavasos, una gorra y una tarjeta para reponer", reorderTag: "Repón",
     boxTitle: "Tu caja de prueba gratis", boxSub: "Una selección hecha a mano para tu mostrador, escogida para tu tienda.",
     boxMix: "Algunos stickers, gorras, bolsas o posavasos", boxCard: "Una tarjeta para reponer, con el código QR de tu tienda", boxCustom: "Pide diseños hechos solo para tu tienda: tu ciudad, tu playa o tu lugar", fCustom: "Quiero diseños hechos solo para mi tienda",
@@ -121,12 +121,13 @@ function buildPage(lang, d, photos) {
       ? L(`All ${stores} shops that carry us have reordered`, `Las ${stores} tiendas que nos venden han vuelto a pedir`)
       : stores ? L(`${stores} shops carry us`, `${stores} tiendas nos venden`) : "";
 
-  const price = (k) => (has(k) ? L("Sells for $", "Se vende a $") + d[k] : "");
+  const price = (k) => (has(k) ? L("Sell for $", "Se venden a $") + d[k] : "");
+  // Owner's top four, in order (2026-11-23). The design under each is an example.
   const best = [
-    { name: "Lifeguard Tower", type: t.magnet, img: IMG.lifeguard, w: 420, h: 630, alt: t.altLifeguard, kind: "magnet", price: price("PRICE_MAGNET_RETAIL") },
-    { name: "Domino Park", type: t.magnet, img: IMG.domino, w: 420, h: 630, alt: t.altDomino, kind: "magnet", price: price("PRICE_MAGNET_RETAIL") },
-    { name: "Pink Cadillac", type: t.sticker, img: IMG.cadillac, w: 480, h: 478, alt: t.altCadillac, kind: "sticker", price: price("PRICE_STICKER_RETAIL") },
-    { name: t.capName, type: t.cap, img: IMG.cap, w: 430, h: 344, alt: t.altCap, kind: "cap", price: price("PRICE_CAP_RETAIL") },
+    { name: t.magnets, type: "Lifeguard Tower", img: IMG.lifeguard, w: 420, h: 630, alt: t.altLifeguard, kind: "magnet", price: price("PRICE_MAGNET_RETAIL") },
+    { name: t.coasters, type: "Rainbow Lifeguard Tower", img: IMG.coaster, w: 560, h: 560, alt: t.altCoaster, kind: "coaster", price: price("PRICE_COASTER_RETAIL") },
+    { name: t.stickers, type: "Pink Cadillac", img: IMG.cadillac, w: 480, h: 478, alt: t.altCadillac, kind: "sticker", price: price("PRICE_STICKER_RETAIL") },
+    { name: t.caps, type: "Lifeguard Tower", img: IMG.cap, w: 430, h: 344, alt: t.altCap, kind: "cap", price: price("PRICE_CAP_RETAIL") },
   ];
 
   const boxMagnets = has("BOX_MAGNETS")
@@ -187,7 +188,7 @@ function buildPage(lang, d, photos) {
     { q: L("What happens after the trial?", "¿Qué pasa después de la prueba?"),
       a: L("Your first reorder has no minimum, so you restock just what sold. Reorders are wholesale", "Tu primera reposición no tiene mínimo: pides solo lo que se vendió. Los pedidos son al por mayor")
         + (has("TRIAL_REORDER_MIN") ? L(`, from $${d.TRIAL_REORDER_MIN} after the first`, `, con un mínimo de $${d.TRIAL_REORDER_MIN} desde el segundo`) : "")
-        + L(", paid on delivery or by card. Payment terms open up after your first paid order.", ", contra entrega o con tarjeta. Después de tu primer pedido pagado hay plazos de pago.") },
+        + L(", paid by card. Jesús confirms the details with you.", ", con tarjeta. Jesús te confirma los detalles.") },
     has("REORDER_DAYS") && { q: L("How fast do reorders arrive?", "¿Qué tan rápido llegan los pedidos?"),
       a: L(`${d.REORDER_DAYS} days from Miami.`, `En ${d.REORDER_DAYS} días desde Miami.`) },
     { q: L("Do I need a resale certificate?", "¿Necesito certificado de reventa?"),
